@@ -19,8 +19,7 @@ fun main(args: Array<String>) {
                 id = scan.nextInt()
                 println("Enter the name")
                 name = scan.next()
-                println("Enter the capacity")
-                capacity = scan.nextInt()
+                
                 if (id < 0 || id == null) {
                     println("Enter the valid id")
                     id = scan.nextInt()
@@ -30,11 +29,13 @@ fun main(args: Array<String>) {
                     name = scan.next()
 
                 }
-                if (capacity > 2 && capacity > 13 || capacity == null) {
-                    println("capacity should be greater than two and limited to twele")
-                    println("Enter the valid capacity ")
+           do {
+                    println("Enter the capacity:")
                     capacity = scan.nextInt()
-                }
+                    if (capacity <= 2 || capacity >= 13) {
+                        println("Capacity should be greater than 2 and less than 13.")
+                    }
+                } while (capacity <= 2 || capacity >= 13)            
                 bookingSystem.register(MeetingRoom(id, name, capacity))
             }
 
